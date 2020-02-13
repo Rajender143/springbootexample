@@ -14,16 +14,23 @@
  * limitations under the License.
  */
 package io.dekorate.example.sbonopenshift;
-
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+//@ConfigurationProperties("spring.application.name.demo")
 public class Controller {
 
+	@Autowired
+	private DemoProperties prop;
   @RequestMapping("/loginTest")
-  public String hello() {
-	  System.out.println("Entered into login method");
-    return "Hello world openshift";
+  public ModelAndView hello(ModelAndView mv) {
+	  System.out.println("Entered into login method"+"Environment  :"+prop.getEnvironment()+"Host  :"+prop.getHosts());
+	  mv.setViewName("welcome");
+	return mv;
+	  
   }
 }

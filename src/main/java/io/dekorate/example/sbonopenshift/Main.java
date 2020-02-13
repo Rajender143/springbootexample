@@ -15,15 +15,25 @@
  */
 package io.dekorate.example.sbonopenshift;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
+//@ConfigurationProperties("demo")
 public class Main extends SpringBootServletInitializer {
 
-  public static void main(String[] args) {
+  @Autowired
+  private DemoProperties demo;
+	public static void main(String[] args) {
     SpringApplication.run(Main.class, args);
   }
+	public void run(String strings) throws Exception{
+		System.out.println(demo);
+	}
 
 }
