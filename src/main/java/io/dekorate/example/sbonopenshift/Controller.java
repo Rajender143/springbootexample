@@ -21,8 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 
-  @RequestMapping("/login")
+  @RequestMapping("/loginTest")
   public String hello() {
-    return "Hello world";
+	  System.out.println("Entered into login method");
+    return "Hello world openshift";
   }
 }
