@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 
-  @RequestMapping("/")
+  @RequestMapping("/login")
   public String hello() {
     return "Hello world";
   }
