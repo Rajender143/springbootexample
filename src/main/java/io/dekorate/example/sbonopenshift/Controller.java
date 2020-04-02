@@ -26,9 +26,15 @@ public class Controller {
 
 	@Autowired
 	private DemoProperties prop;
+	
+	@Autowired
+	private Platform platform;
+	
   @RequestMapping("/loginTest")
   public ModelAndView hello(ModelAndView mv) {
 	  System.out.println("Entered into login method"+"Environment  :"+prop.getEnvironment()+"Host  :"+prop.getHosts());
+	  System.out.println("platform  :"+platform.getDomainUrl().getBaseUrl());
+	  mv.addObject("platform", platform.getDomainUrl().getBaseUrl());
 	  mv.setViewName("welcome");
 	return mv;
 	  
